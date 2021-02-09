@@ -3,7 +3,7 @@
     session_start();
 
     if(!isset($_SESSION['loggedin'])){
-        header('location: ./home.php');
+        header('location: ./index.php');
         exit;
     }
 
