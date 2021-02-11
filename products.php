@@ -3,6 +3,12 @@
 	require_once "./includes/connect.php";
 	
 	$search = "SELECT * FROM products";
+	
+	if(isset($_GET['q']))
+	{
+		$search = $search." WHERE name LIKE '%".$_GET['q']."%'";
+	}
+	
 	$results = $conn->query($search);
 	
 	if($results->num_rows > 0)
