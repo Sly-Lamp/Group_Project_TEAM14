@@ -27,6 +27,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `orders`
 --
 
+DROP TABLE IF EXISTS orders
 CREATE TABLE `orders` (
   `orderId` int(12) NOT NULL,
   `orderDate` datetime NOT NULL DEFAULT current_timestamp(),
@@ -49,6 +50,7 @@ INSERT INTO `orders` (`orderId`, `orderDate`, `usrnm`, `itemId`, `itemName`) VAL
 -- Table structure for table `users`
 --
 
+DROP TABLE IF EXISTS users
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `usrType` int(1) NOT NULL DEFAULT 0,
@@ -71,6 +73,7 @@ INSERT INTO `users` (`id`, `usrType`, `usrnm`, `fName`, `sName`, `email`, `pwd`,
 -- Create products table
 --
 
+DROP TABLE IF EXISTS products
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
