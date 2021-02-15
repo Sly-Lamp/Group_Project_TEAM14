@@ -17,31 +17,31 @@
 	if($results->num_rows > 0)
 	{
 		#Present the results in a table
-		echo "<table>";
-		
-		echo "<tr>";
-		echo "<td>ID</td>";
-		echo "<td>Name</td>";
-		echo "<td>Description</td>";
-		echo "<td>Price</td>";
-		echo "<td>Product Page</td>";
-		echo "</tr>";
+		echo "<div class='productList'>";
+			echo "<div class='row'>";
+				echo "<div class='col'>ID</div>";
+				echo "<div class='col'>Name</div>";
+				echo "<div class='col'>Description</div>";
+				echo "<div class='col'>Price</div>";
+				echo "<div class='col'>Product Page</div>";
+			echo "<div>";
+		echo "</div>";
 		
 		#Iterate through every result, displaying the data in new rows in the table
 		while($row = $results->fetch_assoc())
 		{
 			$price = $row["price"] / 100;
 			
-			echo "<tr>";
-			echo "<td>".$row["id"]."</td>";
-			echo "<td>".$row["name"]."</td>";
-			echo "<td>".$row["description"]."</td>";
-			echo "<td>£".$price."</td>";
-			echo "<td><a href='product.php?id=".$row["id"]."'>Page</a></td>";
-			echo "</tr>";
+			echo "<div class='row'>";
+				echo "<div class='col'>".$row["id"]."</div>";
+				echo "<div class='col'>".$row["name"]."</div>";
+				echo "<div class='col'>".$row["description"]."</div>";
+				echo "<div class='col'>£".$price."</div>";
+				echo "<div class='col'><a href='product.php?id=".$row["id"]."'>Page</a></div>";
+			echo "</div>";
 		}
 		
-		echo "</table>";
+		echo "</div>";
 	}
 	else
 	{

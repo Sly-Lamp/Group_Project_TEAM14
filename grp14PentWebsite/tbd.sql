@@ -78,14 +78,26 @@ INSERT INTO `users` (`id`, `usrType`, `usrnm`, `fName`, `sName`, `email`, `pwd`,
 DROP TABLE IF EXISTS products;
 
 CREATE TABLE `products` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `description` varchar(512) NOT NULL,
   `imageRef` varchar(255),
   `price` int(255) NOT NULL,
   `stock` int(255) NOT NULL,
-  `created` date NOT NULL DEFAULT current_timestamp()
+  `created` date NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+--
+-- Sample products
+--
+
+INSERT INTO products (name, description, imageRef, price, stock)
+VALUES ("Apple", "Robust and crunchy", "assets\productImages\download.jpg", 100, 250);
+
+INSERT INTO products (name, description, imageRef, price, stock)
+VALUES ("Pear", "Robust and crunchier", "https://upload.wikimedia.org/wikipedia/commons/c/cf/Pears.jpg", 100, 250);
 
 --
 -- Indexes for dumped tables
@@ -101,12 +113,6 @@ ALTER TABLE `orders`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `products`
---
-ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
