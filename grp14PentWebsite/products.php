@@ -1,9 +1,7 @@
-<?php
-
-require './includes/header.php';
-
-?>
-
+<head>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
 <div class="container">
 
     <div class="searchheader">
@@ -15,8 +13,7 @@ require './includes/header.php';
             <option value="2">Price: High - Low</option>
             <option value="3">Star Rating</option>
         </select>
-        </div>
-    </div>
+	</div>
 
     <div class="row">
         <div class="filters">
@@ -74,81 +71,6 @@ require './includes/header.php';
 			
 			$conn->close();
 		?>
-            <!-- for products list all, unless there is a specific term where you list all %like% the search term -->
-            <div class="row">
-                <div class="col">
-                    <div class="items"> <!-- Please a link on each item that takes the user to the product page-->
-                        <img src="./assets/productImages/download.jpg" alt="Product Image" class="img">
-                        <p class="name">Product Name</p>
-                    </div>
-                    <div class="items">
-                        <img src="./assets/productImages/download.jpg" alt="Product Image" class="img">
-                        <p class="name">Product Name</p>
-                    </div>
-                    <div class="items">
-                        <img src="./assets/productImages/download.jpg" alt="Product Image" class="img">
-                        <p class="name">Product Name</p>
-                    </div>
-                    <div class="items">
-                        <img src="./assets/productImages/download.jpg" alt="Product Image" class="img">
-                        <p class="name">Product Name</p>
-                    </div>
-                </div> 
-                <div class="col">
-                    <div class="items">
-                        <img src="./assets/productImages/download.jpg" alt="Product Image" class="img">
-                        <p class="name">Product Name</p>
-                    </div>
-                    <div class="items">
-                        <img src="./assets/productImages/download.jpg" alt="Product Image" class="img">
-                        <p class="name">Product Name</p>
-                    </div>
-                    <div class="items">
-                        <img src="./assets/productImages/download.jpg" alt="Product Image" class="img">
-                        <p class="name">Product Name</p>
-                    </div>
-                    <div class="items">
-                        <img src="./assets/productImages/download.jpg" alt="Product Image" class="img">
-                        <p class="name">Product Name</p>
-                    </div>
-                </div> 
-                <div class="col">
-                    <div class="items">
-                        <img src="./assets/productImages/download.jpg" alt="Product Image" class="img">
-                        <p class="name">Product Name</p>
-                    </div>
-                    <div class="items">
-                        <img src="./assets/productImages/download.jpg" alt="Product Image" class="img">
-                        <p class="name">Product Name</p>
-                    </div>
-                    <div class="items">
-                        <img src="./assets/productImages/download.jpg" alt="Product Image" class="img">
-                        <p class="name">Product Name</p>
-                    </div>
-                    <div class="items">
-                        <img src="./assets/productImages/download.jpg" alt="Product Image" class="img">
-                        <p class="name">Product Name</p>
-                    </div>
-                </div> 
-                <div class="col">
-                    <div class="items">
-                        <img src="./assets/productImages/download.jpg" alt="Product Image" class="img">
-                        <p class="name">Product Name</p>
-                    </div>
-                    <div class="items">
-                        <img src="./assets/productImages/download.jpg" alt="Product Image" class="img">
-                        <p class="name">Product Name</p>
-                    </div>
-                    <div class="items">
-                        <img src="./assets/productImages/download.jpg" alt="Product Image" class="img">
-                        <p class="name">Product Name</p>
-                    </div>
-                    <div class="items">
-                        <img src="./assets/productImages/download.jpg" alt="Product Image" class="img">
-                        <p class="name">Product Name</p>
-                    </div>
-                </div> 
-        </div>
     </div>
 </div>
 
