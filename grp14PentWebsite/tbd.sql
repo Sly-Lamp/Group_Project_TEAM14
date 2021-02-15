@@ -68,6 +68,20 @@ INSERT INTO `users` (`id`, `usrType`, `usrnm`, `fName`, `sName`, `email`, `pwd`,
 (1, 1, 'Admin', 'Group', 'Project', 'email@domain.name', '$2y$10$QoEiVuUCSzxH1mZMZl55cu/GyVwvU3KA5H5ZXNvy.XmFmyR.1mt4G', '2021-02-07');
 
 --
+-- Create products table
+--
+
+CREATE TABLE `products` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` varchar(512) NOT NULL,
+  `imageRef` varchar(255),
+  `price` int(255) NOT NULL,
+  `stock` int(255) NOT NULL,
+  `created` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
 -- Indexes for dumped tables
 --
 
@@ -81,6 +95,12 @@ ALTER TABLE `orders`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -98,6 +118,7 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
