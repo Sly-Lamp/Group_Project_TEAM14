@@ -31,11 +31,12 @@ require './includes/header.php';
                     #If a search has been made, append a search filter to the query
                     if(isset($_GET['q'])){
                         $search = $search." WHERE name LIKE '%".$_GET['q']."%'";
+						echo "<h2>You searched for: ".$_GET['q']."</h2>";
                     }
 
                     #Get every product that matches the given criteria
 			        $results = $conn->query($search);
-
+					
                     if($results->num_rows > 0): ?>
                          <?php
                         while($row = $results->fetch_assoc()):
