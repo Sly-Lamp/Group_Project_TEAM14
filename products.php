@@ -37,6 +37,13 @@ require './includes/header.php';
                     #Get every product that matches the given criteria
 			        $results = $conn->query($search);
 					
+					if(!$results)
+					{
+						#Something has gone wrong with the query
+						echo $conn->error;
+						die();
+					}
+					
                     if($results->num_rows > 0): ?>
                          <?php
                         while($row = $results->fetch_assoc()):
