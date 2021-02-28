@@ -6,8 +6,8 @@ require './includes/header.php';
 
 <div class="container">
 
-    <div class="searchheader">
-        <input type="text" placeholder="Search..." class="search"> <!-- easty access search bar for users, with a sort by menu-->
+    <form class="searchheader" method="POST" action="products.php">
+        <input type="text" placeholder="Search..." class="search" name="q"> <!-- easty access search bar for users, with a sort by menu-->
         <button type="submit" class="srchBtn"><i class="fas fa-search"></i></button>
         <select name="sort" class="sort">
             <option value="" selected disabled>Sort By:</option>
@@ -16,8 +16,8 @@ require './includes/header.php';
             <option value="2">Price: High - Low</option>
             <option value="3">Star Rating</option>
         </select>
-        </div>
-    </div>
+    </form>
+</div>
            
     <div class="productLst">
         <div class="row" style="width: 90%; margin: 0 auto;">
@@ -26,12 +26,12 @@ require './includes/header.php';
                 <?php
 
                     #Base "get all" query for products
-			        $search = "SELECT * FROM products";
+			        $search = "SELECT id, name, imageRef, price FROM products";
 
                     #If a search has been made, append a search filter to the query
-                    if(isset($_GET['q'])){
-                        $search = $search." WHERE name LIKE '%".$_GET['q']."%'";
-						echo "<h2>You searched for: ".$_GET['q']."</h2>";
+                    if(isset($_POST['q'])){
+                        $search = $search." WHERE name LIKE '%".$_POST['q']."%'";
+						echo "<h2>You searched for: ".$_POST['q']."</h2>";
                     }
 
                     #Get every product that matches the given criteria
