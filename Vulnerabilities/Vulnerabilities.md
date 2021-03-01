@@ -19,11 +19,11 @@ The results of an SQL injection can be displayed onto the search results page by
 This will cause the results to also include the id, username, and password of all users stored in the database.
 It should also be noted that no semicolon is required as this is not a new query, it is only adding to the original search query.  
 
-There are 2 important notes with displaying the results of an SQL injection, to prevent an error that will result in no results being displayed from the UNION:
-1: The table added using UNION should be 4 columns long, as that is how many columns are taken from the products table.
+There are 2 important notes with displaying the results of an SQL injection, to prevent an error that will result in no results being displayed from the UNION: 
+1: The table added using UNION should be 4 columns long, as that is how many columns are taken from the products table.  
 2: The 4th column being queried for should always be numerical, as that is where the price for the products is stored - which gets used in calculations on the page.  
 
-A slightly less critical note is that the value of the 3rd column is not displayed as itself, but instead as the 'href' value of an image. This can be pulled from the page using view source, or inspect element.
+A slightly less critical note is that the value of the 3rd column is not displayed as itself, but instead as the 'href' value of an image. This can be pulled from the page using 'view source' or 'inspect element'.
 
 NB: Combining SQLI and XSS
 ----------------------
