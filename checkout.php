@@ -61,7 +61,6 @@
     </div>
 
 </div>
+</div>
 
-<?php
-
-    require './includes/footer.php';
+<script src="./js/scripts.js"></script>
