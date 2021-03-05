@@ -99,6 +99,19 @@ INSERT INTO `users` (`id`, `usrType`, `usrnm`, `fName`, `sName`, `email`, `pwd`,
 (1, 1, 'Admin', 'Group', 'Project', 'email@domain.name', '$2y$10$QoEiVuUCSzxH1mZMZl55cu/GyVwvU3KA5H5ZXNvy.XmFmyR.1mt4G', '2021-02-07');
 
 --
+-- Table structure for table `card_details`
+--
+
+CREATE TABLE `card_details` (
+  `id` int(11) NOT NULL AUTO INCREMENT,
+  `cardNumber` varchar(16) NOT NULL,
+  `securityCode` varchar(3) NOT NULL,
+  `expiry` date NOT NULL,
+  `created` date NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
 -- Indexes for dumped tables
 --
 
