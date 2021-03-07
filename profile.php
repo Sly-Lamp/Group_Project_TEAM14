@@ -16,6 +16,27 @@
 	echo "<p>First Name: ".$result['fName']."</p>";
 	echo "<p>Surname: ".$result['sName']."</p>";
 	echo "<p>Email: ".$result['email']."</p>";
-
+	
+	#Payment information
+	$search = "SELECT * FROM card_details WHERE userID=".$_SESSION['id'];
+	$result = $conn->query($search);
+	
+	echo "<p>Card details: </p>";
+	
+	if($result->num_rows > 0)
+	{
+		echo "<ul>";
+			while($row = $result->fetch_assoc())
+			{
+				echo "<li>*************".substr($row['cardNumber'], -3)." | <a href='removecard.php?id=".$row['id']."'>Remove</a></li>";
+			}
+		echo "</ul>";
+	}
+	else
+	{
+		echo "<p>No cards on record.</p>";
+	}
+	echo "<a href='addCard.php'><button>Add new card</button></a>";
+	
 	include './includes/footer.php';
 ?>
