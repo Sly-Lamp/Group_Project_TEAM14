@@ -27,6 +27,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `orders`
 --
 
+DROP TABLE IF EXISTS orders;
 CREATE TABLE `orders` (
   `orderId` int(12) NOT NULL,
   `orderDate` datetime NOT NULL DEFAULT current_timestamp(),
@@ -49,6 +50,7 @@ INSERT INTO `orders` (`orderId`, `orderDate`, `usrnm`, `itemId`, `itemName`) VAL
 -- Table structure for table `products`
 --
 
+DROP TABLE IF EXISTS products;
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -80,23 +82,53 @@ INSERT INTO `products` (`id`, `name`, `description`, `imageRef`, `price`, `stock
 -- Table structure for table `users`
 --
 
+DROP TABLE IF EXISTS card_details; -- Foreign key constrain means this needs to happen first
+DROP TABLE IF EXISTS users;
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `usrType` int(1) NOT NULL DEFAULT 0,
   `usrnm` varchar(255) NOT NULL,
   `fName` varchar(255) NOT NULL,
   `sName` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `pwd` varchar(255) NOT NULL,
-  `created` date NOT NULL DEFAULT current_timestamp()
+  `created` date NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `usrType`, `usrnm`, `fName`, `sName`, `email`, `pwd`, `created`) VALUES
-(1, 1, 'Admin', 'Group', 'Project', 'email@domain.name', '$2y$10$QoEiVuUCSzxH1mZMZl55cu/GyVwvU3KA5H5ZXNvy.XmFmyR.1mt4G', '2021-02-07');
+INSERT INTO `users` (`usrType`, `usrnm`, `fName`, `sName`, `email`, `pwd`) VALUES
+(1, 'Admin', 'Group', 'Project', 'email@domain.name', '$2y$10$QoEiVuUCSzxH1mZMZl55cu/GyVwvU3KA5H5ZXNvy.XmFmyR.1mt4G');
+
+-- Non-admin sample users
+
+INSERT INTO `users` (`usrType`, `usrnm`, `fName`, `sName`, `email`, `pwd`, `created`) VALUES
+(0, 'Bob', 'Robert', 'McGill', 'rmcgill@gmail.com', '$2y$10$/Pf0ZCTClu2DDezB6XrZBuzQBdbTAAZb4LRr33Y1pKJBSJC6ckyq.', '2021-03-05');
+
+--
+-- Table structure for table `card_details`
+--
+
+CREATE TABLE `card_details` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userID` int(11) NOT NULL,
+  `cardNumber` varchar(16) NOT NULL,
+  `securityCode` varchar(3) NOT NULL,
+  `expiry` date NOT NULL,
+  `created` date NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (id),
+  FOREIGN KEY (userID) REFERENCES users(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Sample card details
+--
+
+INSERT INTO `card_details` (userID, cardNumber, securityCode, expiry) VALUES
+(2, "1234567891011121", "456", "2022-03-01");
 
 --
 -- Indexes for dumped tables
@@ -117,8 +149,6 @@ ALTER TABLE `products`
 --
 -- Indexes for table `users`
 --
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -136,11 +166,6 @@ ALTER TABLE `orders`
 ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
