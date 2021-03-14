@@ -74,7 +74,17 @@
                                 $_SESSION['usrType'] = $usrType;
 
                                 //Redirect user to home page
-                                header('location: ./home.php');
+								
+								if(isset($_POST['returnto']))
+								{
+									$returnto = $_POST['returnto'];
+								}
+								else
+								{
+									$returnto = "/home.php";
+								}
+                                header('location: .'.$returnto);
+								
                             } else{
                                 //Display an error message if password does not match account password
                                 $pwdErr = 'The password you entered does not match you account.';
@@ -109,7 +119,6 @@
     <title>Login</title>
 </head>
 <body>
-
     <div class="container">
         <div class="login">
 
@@ -118,7 +127,7 @@
                 <h1>Login:</h1>
 
                 <label for="usrnm">Username:</label>
-                <input type="text" name="usrnm" id="usrnm" placeholder="Username...">
+                <input type="text" name="usrnm" id="usrnm" placeholder="Username..."><br/>
 
 
                 <label for="pwd">Password:</label>
@@ -127,11 +136,23 @@
                 <label class="shwPwdCont" for="shwPwd">Show Password
                     <input type="checkbox" name="shwPwd" id="shwPwd" onclick="showPw()">
                     <span class="checkmark"></span>
-                </label>
+                </label><br/>
+				
                 <button type="submit" name="login" id="login">Login</button>
-                <a href="#">Reset your password here.</a>
+                <a href="#">Reset your password here.</a><br/>
 
-                <a href="./register.php">Create an Account here.</a>
+                <a href="./register.php">Create an Account here.</a><br/>
+				
+				<?php
+					if(isset($_GET['returnto']))
+					{
+						echo '<input type="hidden" name="returnto" value="'.$_GET['returnto'].'"/>';
+					}
+					else if(isset($_POST['returnto']))
+					{
+						echo '<input type="hidden" name="returnto" value="'.$_POST['returnto'].'"/>';
+					}
+				?>
             </form>
 
         </div>

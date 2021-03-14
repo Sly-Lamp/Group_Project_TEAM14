@@ -3,7 +3,7 @@
     session_start();
 
     if(!isset($_SESSION['loggedin'])){
-        header('location: ./index.php');
+        header('location: ./index.php?returnto='.$_SERVER['REQUEST_URI']);
         exit;
     }
 
