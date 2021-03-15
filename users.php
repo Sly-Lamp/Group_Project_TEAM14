@@ -39,6 +39,7 @@
                             <td><?php echo $row['sName']; ?></td>
                             <td><?php echo $row['usrnm']; ?></td>
                             <td><?php echo $row['email']; ?></td>
+                            <td><a href="./profile.php">Profile</a></td>
                     </tr>              
 <?php
 
