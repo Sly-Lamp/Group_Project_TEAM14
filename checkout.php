@@ -38,21 +38,48 @@
 
             <label for="tc">Postcode:</label>
             <input type="text" name="pc" id="pc" placeholder="Postcode..." >
+			
+			<?php
+				$sql = "SELECT * FROM card_details WHERE userID = ".$_SESSION['id'];
+				$results = $conn->query($sql);
+				
+				if(!$results)
+				{
+					#Error
+					die("SQL Error: ".$conn-error);
+				}
+				
+				if($results->num_rows > 0)
+				{
+					echo 	"<label for='card'>Select a card to pay with:</label>
+							<select name='card'>";
+					
+					while($row = $results->fetch_assoc())
+					{
+						echo "<option value='".$row['id']."'>".$row['cardNumber']."</option>";
+					}
+					
+					echo "</select>";
+				}
+				else
+				{
+					echo 	"<label for='cName'>Name on card:</label>
+							<input type='text' name='cName' id='cName' placeholder='Name on Card...' >
 
-            <label for="cName">Name on card:</label>
-            <input type="text" name="cName" id="cName" placeholder="Name on Card..." >
+							<label for='exp'>Expiry:</label>
+							<input type='date' name='exp' id='exp' placeholder='Expiry...' >
 
-            <label for="exp">Expiry:</label>
-            <input type="date" name="exp" id="exp" placeholder="Expiry..." >
+							<label for='exp'>Card No:</label>
+							<input type='text' name='cNo' id='cNo' placeholder='Card No...' >
 
-            <label for="exp">Card No:</label>
-            <input type="text" name="cNo" id="cNo" placeholder="Card No..." >
+							<label for='exp'>Sort Code:</label>
+							<input type='text' name='sCode' id='sCode' placeholder='Sort Code...' >
 
-            <label for="exp">Sort Code:</label>
-            <input type="text" name="sCode" id="sCode" placeholder="Sort Code..." >
-
-            <label for="exp">CVV:</label>
-            <input type="text" name="cvv" id="cvv" placeholder="CVV..." >
+							<label for='exp'>CVV:</label>
+							<input type='text' name='cvv' id='cvv' placeholder='CVV...' >";
+				}
+			?>
+            
 
             <button type="submit" name="payNow" id="payNow">Pay Now</button>
 
