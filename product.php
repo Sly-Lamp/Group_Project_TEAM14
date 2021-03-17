@@ -19,27 +19,25 @@
 
 			$price = $product['price'] / 100;
 		?>
-
-			<!-- #Display product data
-			echo "<h1 id='pName'>".$product['name']."</h1>";
-			echo "<p id='pDesc'>".$product['description']."</p>";
-			echo "<p id='price'>".$product['price']."</p>";
-			echo "<img id='picture' src='".$product['imageRef']."'/>"; -->
-
-				<div class="product">
-					<div class="row" style="width:100%; margin: 0 auto;">
+		<div class="container">
+			<div class="pay">
+				<form class="form">
+					<!-- <div class="row" style="width:100%; margin: 0 auto;"> -->
 						<div class="col">
 							<img style="width:100%;" src="<?php echo $product['imageRef']; ?>" alt="Placeholder">
 						</div>
-						<div class="col">
+						<div class="admcol">
 							<h1><?php echo ' '.$product['name']; ?></h1>
 							<p>Description:<?php echo ' '.$product['description']; ?></p>
 							<p>Price: &pound;<?php echo $price; ?></p>
+							<button type="submit" name="payNow" id="payNow">Add to bag</button>
 						</div>
 						
-					</div>
+					<!-- </div> -->
+				</form>
 					
-				</div>
+			</div>
+		</div>
 
 
 

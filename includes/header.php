@@ -16,8 +16,9 @@
     <meta name="author" content="Jake Salt, Connor Grattan, Kenneth Brown, Thomas Neil, Davide Pisanu, Luis Fernandez-Loaysa">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/styles.css">
-    <script src="./js/scripts.js"></script>
     <script src="https://kit.fontawesome.com/2de6eea747.js" crossorigin="anonymous"></script>
+    <script src="./js/scripts.js"></script>
+    
     <title><?php 
     if (basename($_SERVER['PHP_SELF']) == 'index.php') {
     echo 'Login';
@@ -57,8 +58,9 @@
             <nav>
                 <a href="./home.php"><i class="fas fa-home"></i> Home</a>
                 <a href="./products.php"><i class="fas fa-apple-alt"></i> Products</a>
+                <a href="./profile.php"><i class="fas fa-user-alt"></i> Profile</a>
                 <!-- <h1>iFruit</h1> -->
-                <object data="./assets/images/logo.svg" image="image/svg" style="width: 200px">
+                <object data="./assets/images/logo.svg" image="image/svg" style="width: 200px" href="./home.php">
                     Your browser doesn't support SVG
                 </object>
                 <a href="./basket.php"><i class="fas fa-shopping-basket"></i> Basket</a>
@@ -66,7 +68,7 @@
                     if($_SESSION['usrType'] >= 1): ?>
                         <a href="./admin.php"><i class="fas fa-user-lock"></i> Admin</a>
                 <?php endif; ?>
-                <a href="./logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                <a href="./logout.php" class="left"><i class="fas fa-sign-out-alt"></i> Logout</a>
             </nav>
     </header>
 

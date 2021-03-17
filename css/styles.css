@@ -1,0 +1,711 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container{
+    width: 100%;
+    min-height: 100%;
+    display: block; 
+}
+
+.header{
+  text-align: center;
+  margin: 1.2em 0;
+}
+
+.profile, .pay, .cards, .bin2hex{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+#rslt{
+  width: 100%;
+  border: 1px solid;
+  font-size: 1em;
+  padding: .5em;
+  border-radius: .5em;
+  overflow: visible;
+  overflow-wrap: break-word;
+  text-align: left;
+}
+
+.inputLink{
+  position: relative;
+}
+
+.inputLink a{
+  right: 1.5em;
+  position: absolute;
+  /* vertical-align: text-top; */
+  top: -.3rem;
+  z-index: 5;
+}
+
+/* --- Login styles --- */
+
+.login, .register{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    height: 90vh
+}
+
+.form{
+    width: 40%;
+    padding: .5em
+}
+
+.form h1{
+    text-align: center;
+}
+
+.form input, #login label{
+    width: calc(100% - 2.4em);
+    display: block;
+    overflow: auto;
+    margin: 1.2em;
+    border: 1px solid;
+    border-radius: .5em;
+    padding: 1.2em;
+}
+
+.form button{
+    width: calc(100% - 2.4em);
+    margin: 1.2em;
+    padding: 1.2em;
+    border: 1px solid;
+    border-radius: .5em;
+    font-size: 1em;
+}
+
+.form button:hover{
+    background-color: #414142;
+    color: white;
+}
+
+.form a{
+    text-decoration: none;
+    color: #2196F3;
+    display: block;
+    margin: 1.2em 0;
+}
+
+/* Checbox styles: */
+
+/* The container */
+.shwPwdCont {
+  display: block;
+  position: relative;
+  padding-left: 2em;
+  margin-bottom: 1.2em;
+  padding-top: .2em;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+  
+/* Hide the browser's default checkbox */
+.shwPwdCont input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1.5625em;
+  width: 	1.5625em;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.shwPwdCont:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.shwPwdCont input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.shwPwdCont input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.shwPwdCont .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* --- Start of Header styles --- */
+
+header{ 
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  width: 100%;
+  height: 500px;
+  background-color: #424242;
+  color: white;
+}
+
+header h1{
+  text-align: center;
+}
+
+.hamburger{
+  /* text-align: left !important; */
+  top: 1rem !important;
+  left: 1.2rem !important;
+  display: block;
+  position: absolute;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+nav{
+  max-width: 100vw;
+  width: 100%;
+  color: #f1f1f1;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: justify;
+  justify-content: center;
+  align-items: center;
+  padding: .3em;
+}
+
+nav a{
+  padding: .5em;
+  margin-right: 1em;
+  margin-left: 1em; 
+  display: inline-block;
+  text-decoration: none;
+  color: #f1f1f1;
+  font-size: 1.2em;
+}
+
+nav .left{
+  position: absolute;
+  right: 0;
+  margin: 0 1.5em 0 0;
+}
+
+nav #logo{
+  background-color: #2B3133;
+  /* background-image: url(./assets/logo.png); */
+  background-position: center;
+  background-size: cover;
+  width: 5vw;
+  height: 5vw;
+  margin: 0 1em;
+  border-radius: 50%;
+  /* border: red 1px solid; */
+  transform: scale(1.4);
+  box-shadow: 0px 1px 10px -1px black;
+}
+
+nav a:hover{
+  background-color: #70abc4;
+}
+
+/* --- Start of hamburger pannel styles --- */
+.overlay{
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+  overflow-x: hidden;
+  transition: 0.5s;
+} 
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+}
+
+.srch{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search{
+  width: calc(20% - 2.4em);
+  margin: 0 auto;
+  overflow: auto;
+  margin: 1.2em .1em 1.2em 1.2em;
+  border: 1px solid;
+  border-radius: .5em;
+  padding: 1.2em;
+}
+
+.srchBtn{
+  margin: .1em;
+  padding: .8em;
+  border: 1px solid;
+  border-radius: .5em;
+  font-size: 1em;
+}
+
+/* --- Start of Container styles --- */
+
+.container{
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container h1, .container p{
+  text-align: center;
+}
+
+/* --- End of Container syles --- */
+
+/* --- Start of Product styles --- */
+
+.searchheader{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sort{
+    width: calc(10% - 2.4em);
+    margin: 0 auto;
+    overflow: auto;
+    margin: 1.2em .1em 1.2em 1.2em;
+    border: 1px solid;
+    border-radius: .5em;
+    padding: 1.2em;
+}
+
+.sort option{
+  width: calc(10% - 2.4em);
+  font-size: 1.2em;
+}
+
+.filters{
+  width: calc(20% - 1.2em);
+  display: inline-block;
+  background-color: #828282;
+  height: 172vh;
+  order: 0;
+  position: relative;
+  top: 0;
+  
+}
+
+.productList{
+  /* width: calc(65% - 1.2em); */
+  order: 1;
+  /* display: flex;
+  align-items: right; */
+  display: inline-block;
+  width: 80%;
+  margin: 0 auto;
+  /* background-color: pink; */
+}
+
+.items{
+  margin: 2.4em auto;
+  width: calc(100% - 2.4em);
+  /* background-color: lightblue; */
+  /* border: 1px solid; */
+  text-align: center;
+  padding: .5em;
+  text-decoration: none;
+  color: black;
+  margin-top: 8px;
+  vertical-align: middle;
+}
+
+.items img{
+  margin: 1.2em;
+  max-width: 80%;
+  width: calc(100% - .5em);
+}
+
+.itemLink{
+  text-decoration: none;
+  color: black;
+}
+
+.row{
+  display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+
+.productList .row{
+  max-width: 70%;
+}
+
+.col{
+  -ms-flex: 20%;
+  flex: 20%;
+  max-width: 20%;
+  padding: 0 4px;
+}
+
+/* --- Start of Admin styles --- */
+
+.admrow{
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+.admcol{
+  -ms-flex: 50%;
+  flex: 50%;
+  max-width: 50%;
+  padding: 0 4px;
+}
+
+.admcol .items a{
+  text-decoration: none;
+  color: black;
+}
+
+/* Orders table */
+
+.orders{
+  width: calc(80% - 2em);
+  max-width: 100%;
+  margin: 0 auto;
+  border: 1px solid;
+  border-bottom: none;
+}
+
+.orders thead{
+  padding: 2em;
+  width: 100%;
+  background-color: #8F8F8F;
+  color: white;
+}
+
+.orders tbody{
+  text-align: center;
+}
+
+.orders th, .orders td{
+  padding: 1.2em;
+}
+
+.orders td{
+  border-bottom: 1px solid;
+}
+
+.orders a{
+  text-decoration: none;
+  color: black;
+}
+
+.orders a:hover{
+  background-color: #414142;
+  color: white;
+  padding: .2em;
+}
+
+/* --- End of Product styles --- */
+
+/* --- Start of Basket styles --- */
+
+.contents{
+  width: calc(100% - 2.4em);
+  display: inline-block;
+  margin: 1.2em 0;
+  /* background-color: pink; */
+}
+
+.bsktItem{
+  width: calc(80% - 1.2em);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: .5em;
+  /* background-color: orange; */
+  margin: .5em auto;
+}
+
+.bsktItem img{
+  /* display: inline-block; */
+  width: 10%;
+  margin: 1.2em;
+}
+
+.bsktItem h3{
+  /* text-align: center;
+  justify-content: center;
+  align-items: center; */
+  margin: 1.2em;
+}
+
+.bsktItem select{
+  margin: 1.2em;
+  padding: .5em;
+  border: 1px solid;
+  border-radius: .5em
+  /* display: inline-block;
+  top: 0;
+  right: 0;
+  position: relative; */
+}
+
+/* .contents button{
+  padding: 1em;
+  background-color: #2196F3;
+  border: 1px solid #2196F3;
+  position: relative;
+  right: 0px;
+  bottom: 0px;
+  display: block;
+  /* display: flex;
+   justify-content:flex-end; 
+  border-radius: 0.5em;
+  color: white; 
+}*/
+
+.checkout{
+  padding: 1em;
+  background-color: #2196F3;
+  border: 1px solid #2196F3;
+  margin-left: 80%;
+  border-radius: 0.5em;
+  color: white; 
+  text-decoration: none;
+}
+
+.checkout:hover{
+  background-color: #414142;
+  border: 1px solid #414142;
+}
+
+/* .pay{
+  width: calc(40% - 2.4em);
+  display: inline-block;
+  margin: 1.2em 0;
+  background-color: orange; 
+  
+}*/
+
+/* --- End of Basket styles --- */
+
+/* --- Start of Product page styles --- */
+
+.product{
+  width: 80%;
+  margin: 0 auto;
+}
+
+.product img{
+  width: 30%;
+  margin: 0 auto;
+  display: block; 
+}
+
+/* --- End of Product page styles --- */
+
+/* --- Start of Pasword Reset styles --- */
+
+.pwdReset{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  height: 90vh
+}
+
+#pwdResetForm{
+  width: 30%;
+  padding: .5em
+}
+
+.success{
+  background-color: #69c829;
+  padding: .01em;
+  border-radius: .5em;
+}
+
+.success p{
+  color: white;
+  text-align: center;
+}
+
+#pwdResetForm h1{
+  text-align: center;
+}
+
+#pwdResetForm input{
+  width: calc(100% - 2.4em);
+  display: block;
+  overflow: auto;
+  margin: 1.2em;
+  border: 1px solid;
+  border-radius: .5em;
+  padding: 1.2em;
+}
+
+#pwdResetForm button{
+  width: calc(100% - 2.4em);
+  margin: 1.2em;
+  padding: 1.2em;
+  border: 1px solid;
+  border-radius: .5em;
+  font-size: 1em;
+}
+
+#pwdResetForm button:hover{
+  background-color: #414142;
+  color: white;
+}
+
+/* --- End of Password Reset styles --- */
+
+/* --- Start of Footer Styles --- */
+
+footer{ 
+  display: flex;
+  align-items:flex-end;
+  /* justify-content: center; */
+  width: 100%;
+  /* position: ;
+  bottom: 0; */
+  /* margin: .5rem 0 0 0; */
+  background-color: #424242;
+  color: white;
+  padding: .5em;
+  
+}
+
+.verCtrl{
+  text-align: right;
+}
+
+/* --- End of Footer stlyes --- */
+
+/* --- Start of Media Queries --- */
+
+@media only screen and (max-width:400px){
+
+  header{
+      width: 100%;
+  }
+  
+  nav{
+      max-width: 100vw;
+      width: 100%;
+      color: #f1f1f1;
+      display: flex;
+      flex-wrap: wrap;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      padding: .3em;
+  }
+  
+  nav a{
+      order: 1;
+      padding: .5em;
+      margin-right: 1em;
+      margin-left: 1em; 
+      display: block;
+      text-decoration: none;
+      color: #f1f1f1;
+      font-size: 1.2em;
+  }
+
+  nav h1{
+    order: 0;
+    display: block; 
+    min-width: 100vw;
+}
+  
+  nav a:hover{
+      background-color: #70abc4;
+  }
+}
+
+
+  /*---Displays up to 700px*/
+@media only screen and (max-width: 800px){
+  nav{
+      height: 12vw;
+  }
+
+  nav h1{
+    order: 0;
+    display: block; 
+    min-width: 100vw;
+}
+}
+
+@media only screen and  (max-width: 1100px) and (min-width: 801px){
+  nav{
+      height: 12vw;
+  }
+}

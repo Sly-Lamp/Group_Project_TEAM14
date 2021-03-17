@@ -20,6 +20,16 @@
                     <a href="./admins.php"><h1><i class="fas fa-user-lock"></i> Admins</h1></a>
                 </div>
             </div>
+            <div class="admcol">
+                <div class="items">
+                    <a href="./resetpwddata.php"><h1><i class="fas fa-unlock-alt"></i> Password Reset Data</h1></a>
+                </div>
+            </div>
+            <div class="admcol">
+                <div class="items">
+                    <a href="./pwdReset/bin2hex.php"><h1><i class="fas fa-key"></i> Bin 2 Hex</h1></a>
+                </div>
+            </div>
         </div>
     </div>
 
