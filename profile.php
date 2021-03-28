@@ -7,8 +7,17 @@
 
 	echo "<h1 class=\"header\"><i>".$_SESSION['usrnm']."</i>'s Profile:</h1>";
 	
-	$search = "SELECT * FROM users WHERE id=".$_SESSION['id'];
-	$result = $conn->query($search)->fetch_assoc();
+	$search = "SELECT * FROM users WHERE usrnm='".$_SESSION['usrnm']."'";
+	$result = $conn->query($search);
+	echo $search;
+	if(!$result)
+	{
+		die($conn->error);
+	}
+	else
+	{
+		$result = $result->fetch_assoc();
+	}
 	
 	echo "<p>Admin Level: ".$result['usrType']."</p>";
 	echo "<p>User ID: ".$result['id']."</p>";

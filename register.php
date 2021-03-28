@@ -123,7 +123,7 @@
                 //Attempt to execute to execute the prepared statement
                 if(mysqli_stmt_execute($stmt)){
                     //redirect user to home page
-                    header('location: home.php');
+                    header('location: index.php');
                 } else{
                     echo 'Something went wrong. Please try again later.';
                 }
