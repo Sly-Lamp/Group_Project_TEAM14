@@ -26,6 +26,13 @@ There are 2 important notes with displaying the results of an SQL injection, to 
 A slightly less critical note is that the value of the 3rd column is not displayed as itself, but instead as the 'href' value of an image. This can be pulled from the page using 'view source' or 'inspect element'.
 
 NB: Combining SQLI and XSS
-----------------------
+--------------------------
 The previous two vulnerabilities can be combined using the format:  
 " <script>CODE</script>';QUERY# "
+
+Second-Order SQL Injection via Profile Usernames
+------------------------------------------------
+The data used in 'profile.php' is pulled from the database using a query for the username of the logged-in user, which is not sanitised prior to searching.  
+This creates a point of entry for a malicious query to be injected, as usernames can be created with common SQLi characters without issue (e.g: ', ;, -).  
+If a user created an account with the username 'USERNAME', the following query would be executed upon the user visiting 'profile.php':
+SELECT * FROM users WHERE usrnm='USERNAME'
