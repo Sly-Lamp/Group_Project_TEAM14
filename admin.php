@@ -1,5 +1,11 @@
 <?php
     include './includes/header.php';
+	
+	if(isset($_SESSION['loggedin']) && $_SESSION['usrType'] == 0)
+	{
+		header('location: ./profile.php');
+		die;
+	}
 ?>
 
     <div class="container">
