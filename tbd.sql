@@ -110,7 +110,7 @@ INSERT INTO `products` (`id`, `name`, `description`, `imageRef`, `price`, `stock
 (2, 'Pear', 'Robust and crunchier', 'https://upload.wikimedia.org/wikipedia/commons/c/cf/Pears.jpg', 100, 250, '2021-02-15'),
 (3, 'Papaya', 'More Robust and crunchy', 'https://media.istockphoto.com/photos/two-half-cut-of-ripe-papaya-with-seeds-isolated-on-white-background-picture-id1025189776?s=612x612', 250, 100, '2021-03-18'),
 (4, 'Strawberries', 'Delicious, but not robust nor crunchy', 'https://i.imgur.com/qyGHL7z.jpg', 500, 500, '0000-00-00'),
-(5, 'Bannaannnnaaaa', 'Edible, but full of potassium. Not reccomended if you have a heart', 'https://joanfruit.com/imagecache/custom/ff86993f3754009600e9b9789a140e96.jpeg', 500, 500, '2021-03-18'),
+(5, 'Bannaannnnaaaa', 'Edible, but full of potassium. Not reccomended if you have a heart', 'https://joanfruit.com/imagecache/custom/ff86993f3754009600e9b9789a140e96.jpeg', 500, 500, '2021-03-18');
 
 -- --------------------------------------------------------
 
