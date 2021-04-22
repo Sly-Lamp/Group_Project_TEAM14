@@ -16,7 +16,7 @@
 	
 			#Only take the first result, if there is for some reason multiple records with the same ID
 			$product = $results->fetch_assoc();
-
+			
 			$price = $product['price'] / 100;
 		?>
 		<div class="container">

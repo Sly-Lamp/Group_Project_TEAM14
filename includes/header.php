@@ -33,7 +33,7 @@
         echo 'Product List';
     }
     if (basename($_SERVER['PHP_SELF']) == 'product.php'){
-        echo 'PRODUCT NAME'; //Get name from db
+        echo 'Product Page';
     }
     if (basename($_SERVER['PHP_SELF']) == 'admin.php'){
         echo 'Admin';

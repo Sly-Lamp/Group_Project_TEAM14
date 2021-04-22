@@ -106,9 +106,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `imageRef`, `price`, `stock`, `created`) VALUES
-(1, 'Apple', 'Robust and crunchy', 'assets/productImages/download.jpg', 100, 250, '2021-02-15'),
+(1, 'Apple', 'Robust and crunchy', 'https://indianapublicmedia.org/stateimpact/files/2013/01/apple-image.jpg', 100, 250, '2021-02-15'),
 (2, 'Pear', 'Robust and crunchier', 'https://upload.wikimedia.org/wikipedia/commons/c/cf/Pears.jpg', 100, 250, '2021-02-15'),
-(3, 'Papaya', 'More Robust and crunchy', 'https://media.istockphoto.com/photos/two-half-cut-of-ripe-papaya-with-seeds-isolated-on-white-background-picture-id1025189776?s=612x612 6000w, https://media.istockphoto.com/photos/two-half-cut-of-ripe-papaya-with-seeds-isolated-on-white-background-picture', 250, 100, '2021-03-18'),
+(3, 'Papaya', 'More Robust and crunchy', 'https://media.istockphoto.com/photos/two-half-cut-of-ripe-papaya-with-seeds-isolated-on-white-background-picture-id1025189776?s=612x612', 250, 100, '2021-03-18'),
 (4, 'Strawberries', 'Delicious, but not robust nor crunchy', 'https://i.imgur.com/qyGHL7z.jpg', 500, 500, '0000-00-00'),
 (5, 'Bannaannnnaaaa', 'Edible, but full of potassium. Not reccomended if you have a heart', 'https://i.imgur.com/PvMF3gY.jpg', 500, 500, '2021-03-18'),
 (6, 'What\'s the story...', '...in Balamory? Wouldn\'t you like to know.', 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQx48myxnX15p6uM24CKXvYBptXTwdFLsLCSRmNTNd40OBzOc_e', 100, 100, '2021-03-18');
